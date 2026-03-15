@@ -109,6 +109,7 @@ quantity: number
 unit: "un" | "kg" | "L" | "g" | "ml"
 unitPrice: number
 totalPrice: number
+confidence: "high" | "medium" | "low"  // legibilidade retornada pelo Gemini; persiste para exibição na tela de revisão
 ```
 
 ### `products/{ean}`
@@ -150,7 +151,26 @@ Inicia o processamento de uma nota.
 
 ```
 Body:    { storageImagePath: string }
-Returns: { receiptId, status: "pending_review", parsedData: {...} }
+Returns: {
+  receiptId: string,
+  status: "pending_review",
+  parsedData: {
+    storeName: string,
+    storeAddress: string,
+    cep: string,
+    receiptDate: string,   // ISO 8601
+    total: number,
+    items: [{
+      ean: string | null,
+      rawName: string,
+      quantity: number,
+      unit: string,
+      unitPrice: number,
+      totalPrice: number,
+      confidence: "high" | "medium" | "low"
+    }]
+  }
+}
 ```
 Flow: baixa imagem do Storage → chama Gemini Vision → grava rascunho no Firestore com `status: pending_review`.
 
@@ -166,7 +186,7 @@ Body: {
 }
 Returns: { receiptId, status: "confirmed" }
 ```
-Flow: valida ownership → atualiza receipt para `confirmed` → se `consentSharing=true`, atualiza `price_index` via Firestore transaction.
+Flow: valida ownership (retorna `403` se o receipt não pertence ao usuário autenticado) → atualiza receipt para `confirmed` → se `consentSharing=true`, atualiza `price_index` via Firestore transaction para cada item com EAN não-nulo (itens com EAN adicionados manualmente durante a revisão também contribuem para o índice).
 
 ---
 
@@ -233,7 +253,7 @@ Returns: { receipt, items: [...] }
 
 **4. Câmera**
 - Viewfinder com guia de recorte para nota fiscal
-- Captura automática (quando enquadrado) ou manual
+- Captura manual via botão (MVP); captura automática fora do escopo do MVP
 - Loading multi-etapas: "Enviando imagem… Lendo itens… Salvando…"
 - Tratamento de erro com opção de retry
 
@@ -323,7 +343,7 @@ Rules:
 
 ## Limites e Segurança
 
-- Máximo 50 notas/usuário/mês (Cloud Run valida antes de chamar Gemini)
+- Máximo 50 notas/usuário/mês (Cloud Run valida antes de chamar Gemini; retorna `429 Too Many Requests` com body `{ error: "monthly_limit_reached", limit: 50 }` quando excedido)
 - Chave da Gemini API armazenada no GCP Secret Manager
 - Firebase ID Token validado em todos os endpoints do Cloud Run
 - Firestore Security Rules: usuário acessa apenas seus próprios dados; `price_index` e `products` são somente leitura para o app
