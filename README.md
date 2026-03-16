@@ -97,6 +97,37 @@ flutter run
 - O backend valida o token Firebase em todas as rotas autenticadas
 - Dados de outros usuários nunca são acessíveis diretamente
 
+### Deploy do backend (Cloud Run)
+
+#### Primeira vez
+
+```bash
+# 1. Instale a Google Cloud CLI: https://cloud.google.com/sdk/docs/install
+# 2. Faça login e configure o projeto
+gcloud auth login
+gcloud config set project minhainflacaoapp
+
+# 3. Execute o script de setup (habilita APIs, cria secrets, configura IAM)
+GITHUB_REPO=seu-usuario/minha-inflacao \
+  ./backend/scripts/setup-gcp.sh
+```
+
+O script vai exibir os valores dos secrets que precisam ser cadastrados no GitHub.
+
+#### Secrets necessários no GitHub
+
+| Secret | Descrição |
+|--------|-----------|
+| `GCP_WIF_PROVIDER` | Workload Identity Provider (exibido pelo script) |
+| `GCP_WIF_SERVICE_ACCOUNT` | Service account do GitHub Actions (exibido pelo script) |
+
+#### Deploy automático
+
+Qualquer push para `main` que altere arquivos em `backend/` aciona o workflow [deploy-backend.yml](.github/workflows/deploy-backend.yml) automaticamente:
+1. Roda os testes
+2. Compila o TypeScript
+3. Faz o deploy para o Cloud Run via Docker
+
 ### Licença
 
 MIT — veja [LICENSE](LICENSE)
@@ -193,6 +224,37 @@ flutter run
 - The index is only shown when there are at least 3 contributions (k-anonymity)
 - The backend validates the Firebase token on all authenticated routes
 - Other users' data is never directly accessible
+
+### Backend Deploy (Cloud Run)
+
+#### First-time setup
+
+```bash
+# 1. Install Google Cloud CLI: https://cloud.google.com/sdk/docs/install
+# 2. Log in and set your project
+gcloud auth login
+gcloud config set project minhainflacaoapp
+
+# 3. Run the setup script (enables APIs, creates secrets, configures IAM)
+GITHUB_REPO=your-user/minha-inflacao \
+  ./backend/scripts/setup-gcp.sh
+```
+
+The script will print the secret values that need to be added to GitHub.
+
+#### Required GitHub secrets
+
+| Secret | Description |
+|--------|-------------|
+| `GCP_WIF_PROVIDER` | Workload Identity Provider (printed by the script) |
+| `GCP_WIF_SERVICE_ACCOUNT` | GitHub Actions service account (printed by the script) |
+
+#### Automated deploy
+
+Any push to `main` that changes files under `backend/` triggers the [deploy-backend.yml](.github/workflows/deploy-backend.yml) workflow automatically:
+1. Runs tests
+2. Compiles TypeScript
+3. Deploys to Cloud Run via Docker
 
 ### License
 
