@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'router.dart';
+import 'theme.dart';
 
-class MinhaInflacaoApp extends StatelessWidget {
+class MinhaInflacaoApp extends ConsumerWidget {
   const MinhaInflacaoApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(child: Text('Minha Inflação')),
-      ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(routerProvider);
+    return MaterialApp.router(
+      title: 'Minha Inflação',
+      theme: AppTheme.light,
+      routerConfig: router,
     );
   }
 }
