@@ -5,4 +5,5 @@ module.exports = {
   roots: ['<rootDir>/tests'],
   testMatch: ['**/*.test.ts'],
   collectCoverageFrom: ['src/**/*.ts', '!src/index.ts'],
+  passWithNoTests: true,
 };
