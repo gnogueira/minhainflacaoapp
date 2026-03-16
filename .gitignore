@@ -140,3 +140,6 @@ vite.config.ts.timestamp-*
 
 # Superpowers
 .superpowers/
+
+# Claude Code — local settings only; skills and feature state are committed
+.claude/settings.local.json
