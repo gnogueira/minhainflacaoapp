@@ -45,5 +45,20 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>O app usa a câmera para fotografar notas fiscais e extrair os itens e preços.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>O app acessa a galeria para que você possa selecionar uma foto de nota fiscal.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.980311061860-dg1r7q2ick9apkt026ohrb6rka8f0sda</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
