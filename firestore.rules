@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users: read/write own document only
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Receipts: user owns their receipts
+    match /receipts/{receiptId} {
+      allow read: if request.auth != null
+        && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null
+        && request.auth.uid == request.resource.data.userId;
+      allow update: if request.auth != null
+        && request.auth.uid == resource.data.userId;
+      allow delete: if false;
+
+      // Items subcollection: readable by owner, never writable by client
+      match /items/{itemId} {
+        allow read: if request.auth != null
+          && request.auth.uid ==
+             get(/databases/$(database)/documents/receipts/$(receiptId)).data.userId;
+        allow write: if false;
+      }
+    }
+
+    // Products: authenticated read only, no client writes
+    match /products/{ean} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Price index: authenticated read only, no client writes
+    match /price_index/{docId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+  }
+}
