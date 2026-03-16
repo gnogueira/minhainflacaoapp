@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "980311061860",
+    "project_id": "minhainflacaoapp",
+    "storage_bucket": "minhainflacaoapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980311061860:android:8753f989633645e267b671",
+        "android_client_info": {
+          "package_name": "br.com.minhainflacao.minha_inflacao"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyyROYaVB3VgYYVJ3BF3y9GwjBO2yEUf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

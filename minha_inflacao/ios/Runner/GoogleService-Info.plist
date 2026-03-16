@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyByTUQMPt4cXRT0tzcwZokt533rUpVupjk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>980311061860</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>br.com.minhainflacao.minhaInflacao</string>
+	<key>PROJECT_ID</key>
+	<string>minhainflacaoapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>minhainflacaoapp.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:980311061860:ios:969d6527a64b4b3c67b671</string>
+</dict>
+</plist>
