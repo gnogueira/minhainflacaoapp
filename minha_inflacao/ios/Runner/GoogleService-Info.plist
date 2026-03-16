@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>980311061860-dg1r7q2ick9apkt026ohrb6rka8f0sda.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.980311061860-dg1r7q2ick9apkt026ohrb6rka8f0sda</string>
 	<key>API_KEY</key>
 	<string>AIzaSyByTUQMPt4cXRT0tzcwZokt533rUpVupjk</string>
 	<key>GCM_SENDER_ID</key>
@@ -9,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>br.com.minhainflacao.minhaInflacao</string>
+	<string>br.com.minhainflacao</string>
 	<key>PROJECT_ID</key>
 	<string>minhainflacaoapp</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:980311061860:ios:969d6527a64b4b3c67b671</string>
+	<string>1:980311061860:ios:9814834efe52910767b671</string>
 </dict>
 </plist>

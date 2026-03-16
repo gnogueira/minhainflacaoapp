@@ -7,12 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:980311061860:android:8753f989633645e267b671",
+        "mobilesdk_app_id": "1:980311061860:android:46c9198f4f2b3a9867b671",
         "android_client_info": {
-          "package_name": "br.com.minhainflacao.minha_inflacao"
+          "package_name": "br.com.minhainflacao"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "980311061860-d8qdcue1hpk3b7643jql0ds729biboso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCyyROYaVB3VgYYVJ3BF3y9GwjBO2yEUf0"
@@ -20,7 +25,55 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980311061860-d8qdcue1hpk3b7643jql0ds729biboso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "980311061860-ql60635u82ivj2p0aho0gmkb1r69moqj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.minhainflacao.minhaInflacao"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980311061860:android:8753f989633645e267b671",
+        "android_client_info": {
+          "package_name": "br.com.minhainflacao.minha_inflacao"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980311061860-d8qdcue1hpk3b7643jql0ds729biboso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyyROYaVB3VgYYVJ3BF3y9GwjBO2yEUf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980311061860-d8qdcue1hpk3b7643jql0ds729biboso.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "980311061860-ql60635u82ivj2p0aho0gmkb1r69moqj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.minhainflacao.minhaInflacao"
+              }
+            }
+          ]
         }
       }
     }
