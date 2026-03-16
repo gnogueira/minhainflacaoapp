@@ -2,3 +2,9 @@ node_modules/
 dist/
 .env
 *.js.map
+
+# Service account keys — never commit
+*service-account*.json
+*serviceAccount*.json
+*service_account*.json
+firebase-adminsdk*.json
