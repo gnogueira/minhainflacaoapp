@@ -56,8 +56,8 @@ void main() {
           http.Response('{"error":"monthly_limit_reached","limit":50}', 429));
 
       final repo = ReceiptRepository(apiClient: _makeClient(mockClient));
-      expect(
-        () => repo.processReceipt('gs://bucket/img.jpg'),
+      await expectLater(
+        () async => repo.processReceipt('gs://bucket/img.jpg'),
         throwsA(isA<RateLimitException>()),
       );
     });
